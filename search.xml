@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>图的邻接存储方式对比</title>
+      <link href="/2022/09/17/DataStructure/Graph/"/>
+      <url>/2022/09/17/DataStructure/Graph/</url>
+      
+        <content type="html"><![CDATA[<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><table><thead><tr><th></th><th>邻接表</th><th>邻接矩阵</th></tr></thead><tbody><tr><td>空间复杂度</td><td>无向图O(|V|+|E|)，有向图O(|V|+|E|)</td><td>O(|V|^2)</td></tr><tr><td>适用于</td><td>稀疏图</td><td>稠密图</td></tr><tr><td>表示方式</td><td>不唯一</td><td>唯一</td></tr><tr><td>计算度、出度、入度</td><td>计算有向图的度、入度不方便。其余很方便</td><td>必须遍历对应行或列</td></tr><tr><td>找相邻的边</td><td>找有向图的入度不方便，其余很方便</td><td>必须遍历对应行或列</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Learn </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DataStructure </tag>
+            
+            <tag> 考研 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>高等数学公式速记</title>
       <link href="/2022/08/01/Math/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/"/>
       <url>/2022/08/01/Math/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/</url>
@@ -20,11 +47,11 @@
       
         <tags>
             
+            <tag> 考研 </tag>
+            
             <tag> 考研数学 </tag>
             
             <tag> 公式 </tag>
-            
-            <tag> 考研 </tag>
             
         </tags>
       
@@ -78,11 +105,11 @@
       
         <tags>
             
+            <tag> 考研 </tag>
+            
             <tag> 考研数学 </tag>
             
             <tag> 公式 </tag>
-            
-            <tag> 考研 </tag>
             
         </tags>
       
@@ -223,11 +250,11 @@
       
         <tags>
             
+            <tag> 考研 </tag>
+            
             <tag> 考研数学 </tag>
             
             <tag> 公式 </tag>
-            
-            <tag> 考研 </tag>
             
         </tags>
       
