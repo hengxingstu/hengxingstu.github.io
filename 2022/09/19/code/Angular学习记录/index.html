@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>angular学习记录 | 恒星同学</title><meta name="keywords" content="angular"><meta name="author" content="hengxingstu"><meta name="copyright" content="hengxingstu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="angular学习记录数据绑定  []表示绑定属性，()表示绑定事件，[()]表示双向绑定  服务-持久化要点 组件之间无法相互调用，如果想要相互调用的话，需要使用服务，服务是公共化的【具体组件间的关系请看后面父子组件的交互】  组件可以调用服务的方法，但服务不能调用组件的方法，并且组件之间不能相互调用  服务之间可以相互调用    创建服务的命令 &gt; ng g service servic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular学习记录">
+<meta property="og:url" content="https://hengxingstu.github.io/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="恒星同学">
+<meta property="og:description" content="angular学习记录数据绑定  []表示绑定属性，()表示绑定事件，[()]表示双向绑定  服务-持久化要点 组件之间无法相互调用，如果想要相互调用的话，需要使用服务，服务是公共化的【具体组件间的关系请看后面父子组件的交互】  组件可以调用服务的方法，但服务不能调用组件的方法，并且组件之间不能相互调用  服务之间可以相互调用    创建服务的命令 &gt; ng g service servic">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w.wallhaven.cc/full/6o/wallhaven-6o6orw.png">
+<meta property="article:published_time" content="2022-09-19T02:39:00.000Z">
+<meta property="article:modified_time" content="2022-09-19T03:58:24.860Z">
+<meta property="article:author" content="hengxingstu">
+<meta property="article:tag" content="angular">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://w.wallhaven.cc/full/6o/wallhaven-6o6orw.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hengxingstu.github.io/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'angular学习记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-19 11:58:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/j3/wallhaven-j3dg1m.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">恒星同学</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">angular学习记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-19T02:39:00.000Z" title="发表于 2022-09-19 10:39:00">2022-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-19T03:58:24.860Z" title="更新于 2022-09-19 11:58:24">2022-09-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Markdown/">Markdown</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="angular学习记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#post-comment"><span id="twikoo-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="angular学习记录"><a href="#angular学习记录" class="headerlink" title="angular学习记录"></a>angular学习记录</h3><p><strong>数据绑定</strong></p>
+<blockquote>
+<p>[]表示绑定属性，()表示绑定事件，[()]表示双向绑定</p>
+</blockquote>
+<h4 id="服务-持久化要点"><a href="#服务-持久化要点" class="headerlink" title="服务-持久化要点"></a>服务-持久化要点</h4><ul>
+<li><p>组件之间无法相互调用，如果想要相互调用的话，需要使用服务，服务是公共化的【具体组件间的关系请看后面<a href="#_%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E9%80%9A%E4%BF%A1">父子组件的交互</a>】</p>
+</li>
+<li><p>组件可以调用服务的方法，但服务不能调用组件的方法，并且组件之间不能相互调用</p>
+</li>
+<li><p>服务之间可以相互调用</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/04/23/H2bQRDCJ1M4KSom.png" alt="image-20220423101829641"></p>
+<p>创建服务的命令</p>
+<p><code>&gt; ng g service services/storage</code></p>
+<p>引入服务组件</p>
+<p>在app.module.ts中</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">//引入并配置服务</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> StorageService <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"./services/storage.service"</span><span class="token punctuation">;</span>
+
+<span class="token comment">//providers里添加</span>
+ providers<span class="token operator">:</span> <span class="token punctuation">[</span>StorageService<span class="token punctuation">]</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接下来我们就可以在storage.service.ts中写一些方法</p>
+<p> <img src="C:\Users\HengxingStu\AppData\Roaming\Typora\typora-user-images\image-20220423101947453.png" alt="image-20220423101947453"></p>
+<p>&#x3D;&#x3D;服务定义好了，谁要用，谁引入，然后调用&#x3D;&#x3D;</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">//例如，我在search组件中引入</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> StorageService <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"../../services/storage.service"</span><span class="token punctuation">;</span>
+
+<span class="token comment">//接着实例化该方法，在构造函数中添加该参数，类似于java中的实例化new（其实实例化也可以用，但是不推荐）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> <img src="https://s2.loli.net/2022/04/23/xsfiySEZPGObFuL.png" alt="image-20220423102049383"></p>
+<p>接下来就可以随时调用，这里我在构造方法中就直接调用了，他会在控制台输出这一句</p>
+<p> <img src="https://s2.loli.net/2022/04/23/E39F8a5mxhqnfW4.png" alt="image-20220423102056973"></p>
+<p>【Tips】<code>JSON.parse error:“Type ‘null‘ is not assignable to type ‘string‘“</code></p>
+<p>使用localStorage将Vue3中data声明的一个数组进行解析时。由于定义如下：</p>
+<p>JSON.parse(localStorage.getItem(‘notFinish’)),</p>
+<p>出现了如下错误：<code>Type &#39;null&#39; is not assignable to type &#39;string&#39;</code></p>
+<p>解决方法：</p>
+<p>可以“或”一个空数组字符串，即改成如下形式：</p>
+<p><code>notFinish: JSON.parse(localStorage.getItem(&#39;notFinish&#39;)) || &#39;[]&#39;,</code></p>
+<p>​    一共定义如下三个方法：</p>
+<p> <img src="https://s2.loli.net/2022/04/23/dvUuiNplbFT8I6a.png" alt="image-20220423102216411"></p>
+<p>每次刷新界面都会触发<code>OnInit()</code>函数</p>
+<p> <img src="https://s2.loli.net/2022/04/23/gnpch4rNZi6JxsL.png" alt="image-20220423102220832"></p>
+<h4 id="Angular中的Dom操作"><a href="#Angular中的Dom操作" class="headerlink" title="Angular中的Dom操作"></a>Angular中的Dom操作</h4><blockquote>
+<p>DOM就是文档对象模型，基本可以理解为原生代码</p>
+</blockquote>
+<p> <img src="https://s2.loli.net/2022/04/23/m46cYtGb3uoxq7l.png" alt="image-20220423102256784"></p>
+<p>1、  原生js方法，这里<code>afterviewInit</code>会失败，引入的包似乎没有被使用，不知道什么原因，但是反正这种方法也不推荐，不深究了</p>
+<p> <img src="https://s2.loli.net/2022/04/23/AirdY4LbtpkaIlT.png" alt="image-20220423102316453"></p>
+ <img src="https://s2.loli.net/2022/04/23/sbCiYOXEhHaD9Tm.png" alt="image-20220423102320575"  />
+
+<p>修改浏览器标签的方法</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a1056244734/article/details/108239165">Angular Javascript修改浏览器title方法 JS动态修改浏览器标题</a></p>
+<ol start="2">
+<li>注解方式</li>
+</ol>
+<ul>
+<li><p>模板中给dom起一个名字</p>
+  <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">#myBox</span><span class="token punctuation">></span></span>
+  this is box
+  这也是个dom节点
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+<li><p>在业务逻辑中引入ViewChild</p>
+<p><code>import &#123; Component, OnInit,ViewChild &#125; from &#39;@angular/core&#39;;</code></p>
+</li>
+<li><p>写在类里面（声明）</p>
+<p><code>@ViewChild(&#39;myBox&#39;) myBox:any;</code></p>
+</li>
+<li><p>ngAfterViewInit生命周期函数中获取dom</p>
+<p><code>this.myBox.nativeElement</code></p>
+</li>
+</ul>
+<p>3、  在父组件中通过ViewChild调用子组件的方法</p>
+<ul>
+<li><p>为子组件起名</p>
+<p><code>&lt;app-header #header&gt;&lt;/app-header&gt;</code></p>
+</li>
+<li><p>在父组件中声明</p>
+<p><code>@ViewChild(&#39;header&#39;) header:any;</code></p>
+</li>
+<li><p>接下来可以直接按照属性调用</p>
+<p><code>this.header.run();</code></p>
+</li>
+</ul>
+<h4 id="父子组件及其之间的交互通信"><a href="#父子组件及其之间的交互通信" class="headerlink" title="父子组件及其之间的交互通信"></a>父子组件及其之间的交互通信</h4><p> <img src="https://s2.loli.net/2022/04/23/vGV4ulWkJT9d6tr.png" alt="image-20220423102854428"></p>
+<p>4、  子组件调用父组件属性方法，父传值给子@input<strong>（主要使用）</strong></p>
+<p>父组件不但可以简单的传数据，还可以把自己的方法传给子组件，甚至是整个父组件</p>
+<p>1、 父组件调用时，可以绑定一个属性，用它来传值（确认你的父组件有这个属性）</p>
+<p>&lt;app-header [title]&#x3D;”title”&gt;</app-header></p>
+<p>2、 子组件引入input模块</p>
+<p>import { Component, OnInit, Input } from ‘@angular&#x2F;core’;</p>
+<p>3、 子组件中用@Input接收父组件传来的数据</p>
+<p>@Input() title:any;</p>
+<p>4、 此时可以在子组件中使用这个参数了</p>
+<header>angular学习记录</header>
+
+ 
+
+<p>注意方法传值时不要带括号，（）代表执行方法，你直接按照属性的书写格式即可，input时可以设置为any类型</p>
+<p>@Input() run:any;</p>
+<p>实例；实现下面的功能</p>
+<p>当头部组件在首页时，显示首页字样，在新闻页面时，显示新闻字样</p>
+<p>5、  父组件调用&#x2F;获得子组件方法&#x2F;参数，子向父传值</p>
+<p>一、使用Viewchild注释引入子组件，请看前面关于Dom操作-注解方式：<a href="#_Angular%E4%B8%AD%E7%9A%84Dom%E6%93%8D%E4%BD%9C">ViewChild的内容</a><strong>（主要使用）</strong></p>
+<p>二、子组件通过@Output调用父组件的方法（了解）</p>
+<p>1、在子组件中引入Output和EventEmitter（事件驱动，可以实现广播和接听广播）</p>
+<p>非父子组件，毫无关联的组件间交互</p>
+<p>1、  service服务</p>
+<p>2、  localstorage</p>
+<h4 id="Angular中的生命周期函数"><a href="#Angular中的生命周期函数" class="headerlink" title="Angular中的生命周期函数"></a>Angular中的生命周期函数</h4><p>通俗讲，就是组件创建、组件更新、组件销毁时会触发的一系列方法。</p>
+<p>请查看官网的<a target="_blank" rel="noopener" href="https://angular.cn/guide/lifecycle-hooks">生命周期钩子函数</a>介绍</p>
+<p>这其中，你需要记住的有这么几个：</p>
+<p>1、constructor()  构造函数     他其实并非生命周期函数，除了对局部值进行初始化，什么都不应该做</p>
+<p>2、ngOnInit()    一般做数据的初始化，和对数据的请求，不要做DOM操作</p>
+<p>3、ngAfterViewInit()      DOM操作</p>
+<p>4、ngOnDestory()    </p>
+<h4 id="Rxjs异步数据流编程"><a href="#Rxjs异步数据流编程" class="headerlink" title="Rxjs异步数据流编程"></a>Rxjs异步数据流编程</h4><p>针对异步数据流的编程，通常有以下几种方法</p>
+<p>1、 回调函数</p>
+<p>2、 promise处理</p>
+<p>3、 Rxjs</p>
+<p>Observable发出数据，subscirbe接收数据</p>
+<p>首先在服务组件中引入rxjs对象</p>
+<p>import { Observable } from “rxjs”;</p>
+<p>在服务中写好调用异步数据的方法</p>
+<p>getRxjsData(){</p>
+<p>  return new Observable((observer) &#x3D;&gt;{</p>
+<p>   setTimeout(() &#x3D;&gt; {</p>
+<p>​    var username&#x3D;’张三’;</p>
+<p>​    observer.next(username);&#x2F;&#x2F;用它来发布成功数据</p>
+<p>​    &#x2F;&#x2F; observer.error()</p>
+<p>​    &#x2F;&#x2F; 用它来返回失败数据</p>
+<p>   }, 1000);</p>
+<p>  })</p>
+<p> }</p>
+<p>在需要调用数据的组件中，第一步写服务的调用</p>
+<p>import { RequestService } from “..&#x2F;..&#x2F;service&#x2F;request.service”;</p>
+<p>constructor(public request:RequestService)</p>
+<p>第二步在构造方法中继续获取数据</p>
+<p>var rxjsData &#x3D; this.request.getRxjsData();</p>
+<p>  rxjsData.subscribe((data) &#x3D;&gt; {</p>
+<p>   console.log(data)</p>
+<p>  })</p>
+<p>这样就可以在控制台看到数据被打印</p>
+<p>Rxjs还提供了更多的方法，比如可以取消订阅</p>
+<p>  &#x2F;&#x2F;过一秒后，撤回刚才的操作</p>
+<p>var stream &#x3D; this.request.getRxjsData();</p>
+<p>  var d &#x3D; stream.subscribe((data) &#x3D;&gt; {</p>
+<p>   console.log(data);</p>
+<p>  })</p>
+<p>  setTimeout(() &#x3D;&gt; {</p>
+<p>   d.unsubscribe(); &#x2F;&#x2F;取消订阅</p>
+<p>  }, 1000);</p>
+<p>或者多次执行订阅</p>
+<p>在request.service.ts中</p>
+<p>&#x2F;&#x2F; 多次执行</p>
+<p>getRxjsIntervalData(){</p>
+<p> let count &#x3D; 0;</p>
+<p> return new Observable((observer) &#x3D;&gt;{</p>
+<p>  setInterval(() &#x3D;&gt; {</p>
+<p>   count++;</p>
+<p>   var username&#x3D;’张三–interval’ + count;</p>
+<p>   observer.next(username);</p>
+<p>   &#x2F;&#x2F; observer.error()</p>
+<p>   &#x2F;&#x2F; 用它来返回失败数据</p>
+<p>  }, 1000);</p>
+<p> })</p>
+<p>}</p>
+<p>在组件中</p>
+<p>&#x2F;&#x2F;多次执行</p>
+<p>  var streaminterval &#x3D; this.request.getRxjsIntervalData();</p>
+<p>  streaminterval.subscribe((data) &#x3D;&gt; {</p>
+<p>   console.log(data);</p>
+<p>  })</p>
+<p>Rxjs还有许多工具函数，以map和filter为例</p>
+<p>在用到的组件中引入</p>
+<p>import { map, filter } from “rxjs&#x2F;operators”;</p>
+<p>在组件方法中</p>
+<p>&#x2F;&#x2F; 用工具方法对返回的数据进行处理</p>
+<p>  var streamNum &#x3D; this.request.getRxjsIntervalNum();</p>
+<p>  streamNum.pipe(</p>
+<p>   filter((value:any) &#x3D;&gt;{</p>
+<p>​    if (value % 2 &#x3D;&#x3D; 0) {</p>
+<p>​     return true;</p>
+<p>​    }else return false;</p>
+<p>   })</p>
+<p>  )</p>
+<p>  .subscribe((data) &#x3D;&gt; {</p>
+<p>   console.log(data);</p>
+<p>  })</p>
+<p>这里的filter中一定要声明value是any类型，否则会报错</p>
+<p>map方法的例子</p>
+<p>var streamNum &#x3D; this.request.getRxjsIntervalNum();</p>
+<p>  streamNum.pipe(</p>
+<p>   map((value:any) &#x3D;&gt;{</p>
+<p>​    return value*value;</p>
+<p>   })</p>
+<p>  )</p>
+<p>  .subscribe((data) &#x3D;&gt; {</p>
+<p>   console.log(data);</p>
+<p>  })</p>
+<p>也可以用在一起(通过pipe管道流水线处理)</p>
+<p>var streamNum &#x3D; this.request.getRxjsIntervalNum();</p>
+<p>  streamNum.pipe(</p>
+<p>   filter((value:any) &#x3D;&gt;{</p>
+<p>​    if (value % 2 &#x3D;&#x3D; 0) {</p>
+<p>​     return true;</p>
+<p>​    }else return false;</p>
+<p>   }),</p>
+<p>   map((value:any) &#x3D;&gt;{</p>
+<p>​    return value*value;</p>
+<p>   })</p>
+<p>  )</p>
+<p>  .subscribe((data) &#x3D;&gt; {</p>
+<p>   console.log(data);</p>
+<p>  })</p>
+<h4 id="angular中的数据请求"><a href="#angular中的数据请求" class="headerlink" title="angular中的数据请求"></a>angular中的数据请求</h4><p>l <strong>使用HttpClientModule</strong></p>
+<p><strong>1、get方法</strong></p>
+<p>首先需要在app.module.ts中引入http包</p>
+<p>import { HttpClientModule } from “@angular&#x2F;common&#x2F;http”;</p>
+<p>imports: [</p>
+<p>  HttpClientModule</p>
+<p> ]</p>
+<p>在需要的组件中也引入</p>
+<p>import { HttpClientModule } from “@angular&#x2F;common&#x2F;http”;</p>
+<p>将其看作一个服务，在构造方法中引入</p>
+<p>constructor(public http : HttpClient) { }</p>
+<p>引入完成了，接下来我们在方法中使用</p>
+<p>let api&#x3D;”<a target="_blank" rel="noopener" href="http://a.itying.com/api/productlist&quot;">http://a.itying.com/api/productlist&quot;</a>;</p>
+<p>this.http.get(api).subscribe((response) &#x3D;&gt;{</p>
+<p>   console.log(response)})</p>
+<p>通过Rxjs的异步请求订阅获得回复</p>
+<p>我们也可以在网页上显示获得的数据</p>
+<p># home.component.ts</p>
+<p>this.list &#x3D; response.result;</p>
+<p>#home.component.html</p>
+<ul>
+
+ <li *ngFor="let item of list"></li>
+
+</ul>
+
+<p>效果如下</p>
+<p><strong>2、post方法</strong></p>
+<p>在app.module.ts中引入httpclient</p>
+<p>在组件中引入httpheaders</p>
+<p>import { HttpClient, HttpHeaders } from “@angular&#x2F;common&#x2F;http”;</p>
+<p>同样记得在构造方法</p>
+<p> constructor(public http : HttpClient) { }</p>
+<p>接下来就可以使用</p>
+<p>doLogin(){</p>
+<p>&#x2F;&#x2F;手动设置请求的类型</p>
+<p>  const httpOptions &#x3D; {</p>
+<p>   headers: new HttpHeaders({ ‘Content-Type’:’application&#x2F;json’})</p>
+<p>  };</p>
+<p>  &#x2F;&#x2F;存在跨域</p>
+<p>  let api&#x3D;’<a target="_blank" rel="noopener" href="http://127.0.0.1/dologin&#39;">http://127.0.0.1/dologin&#39;</a>;</p>
+<p>  this.http.post(api,{“username”:”Cloud”,’age’:20},httpOptions).subscribe((response) &#x3D;&gt;</p>
+<p>   console.log(response)</p>
+<p>  )</p>
+<p> }</p>
+<p>我们可以在控制台看到这些，不过因为我们没有服务器接收的缘故，数据是异常的，以后再说吧</p>
+<p><strong>3、通过jsonp请求（解决跨域的方案）</strong></p>
+<p>注意，如果我们要使用jsonp，需要确认服务器支持，如何查看呢？</p>
+<p>在请求链接后端添加?callback&#x3D;xxx,xxx的地方随便写，你会看到请求的数据前后有了xxx字样，代表它支持</p>
+<p>post的请求有个缺点，就是它如果存在跨域，服务器可能因为策略拒绝连接，用jsonp可以解决这个问题</p>
+<p>首先，在app.module.ts中引入HttpClientModule 包和httpClientJsonpModul包</p>
+<p>import { HttpClientModule, HttpClientJsonpModule } from “@angular&#x2F;common&#x2F;http”;</p>
+<p>同样，还需要声明</p>
+<p>imports: [HttpClientModule, HttpClientJsonpModule]</p>
+<p>在模组中同样和http的声明方式一样，在构造方法中声明http对象即可</p>
+<p>下面就可以开始使用jsonp</p>
+<p>doJsonpLogin(){</p>
+<p>  let api&#x3D;”<a target="_blank" rel="noopener" href="http://a.itying.com/api/productlist&quot;">http://a.itying.com/api/productlist&quot;</a>;</p>
+<p>  this.http.jsonp(api,’callback’).subscribe((response) &#x3D;&gt;{</p>
+<p>   console.log(response)</p>
+<p>  })</p>
+<p> }</p>
+<p>l <strong>使用第三方axios工具来请求</strong></p>
+<p>首先在npm中安装axios</p>
+<p>npm install axios –save</p>
+<p>在服务中引入</p>
+<p>import axios from “axios”;</p>
+<p>并且封装好方法</p>
+<p>axiosGet(api:string){</p>
+<p>  alert(‘axiosGet’)</p>
+<p>  return new Observable((observer) &#x3D;&gt;{</p>
+<p>   axios.get(api)</p>
+<p>   .then(function (response:any) {</p>
+<p>​    console.log(response);</p>
+<p>​    observer.next(response);&#x2F;&#x2F;把数据发布出去</p>
+<p>   })})}</p>
+<p>另外，为了让服务可以使用，要在app.module.ts中声明</p>
+<p>import { HttpserviceService } from “.&#x2F;service&#x2F;httpservice.service”;</p>
+<p>providers: [</p>
+<p>  RequestService,</p>
+<p>  HttpserviceService</p>
+<p> ],</p>
+<p>接着在组件中使用</p>
+<p>和所有使用服务的组件一样，组件里引入</p>
+<p>import { HttpserviceService } from “..&#x2F;..&#x2F;service&#x2F;httpservice.service”;</p>
+<p>constructor(public httpService:HttpserviceService) { }</p>
+<p>接下来就可以使用</p>
+<p>getAxiosData(){</p>
+<p>  console.log(‘axios获取数据’)</p>
+<p>  let api&#x3D;”<a target="_blank" rel="noopener" href="http://a.itying.com/api/productlist&quot;">http://a.itying.com/api/productlist&quot;</a>;</p>
+<p>  this.httpService.axiosGet(api).subscribe((data:any) &#x3D;&gt;{</p>
+<p>   console.log(data)</p>
+<p>})}</p>
+<h4 id="angular的路由"><a href="#angular的路由" class="headerlink" title="angular的路由"></a>angular的路由</h4><p>l <strong>配置路由功能和进行路由</strong></p>
+<p>在你新建项目的时候，记得选择添加路由就可以自动配置</p>
+<p>然后在app-routing.module.ts中配置下面的内容</p>
+<p>1、首先引入需要路由的组件，比如我们需要home组件：</p>
+<p>import { HomeComponent } from ‘.&#x2F;components&#x2F;home&#x2F;home.component’;</p>
+<p>3、  在routers列表中写入，其中path后是用户访问的地址</p>
+<p>const routes: Routes &#x3D; [</p>
+<p> {path:’home’,component:HomeComponent}</p>
+<p>];</p>
+<p>这里注意path的位置不要写多于内容，我就是有一次写成了&#x2F;home，多了斜杠，页面就什么也显示不出来，找了好久问题</p>
+<p>配置好后，我们就可以在浏览器中按链接访问每一个地址：（以news组件为例）</p>
+<p>接下来，我们看看如何使用a标签进行导航，有三种方式，推荐第一种：</p>
+<p>  &lt;a [routerLink]&#x3D;”[ ‘&#x2F;home’ ]”&gt;首页标签</a>&#x2F;&#x2F;推荐</p>
+<p>  <a routerLink='/news'>新闻标签</a></p>
+<p>  <a href="/product">商品页面</a></p>
+<p>第一种是动态绑定，第二种是静态，第三种则是原生方法</p>
+<p>但在此我们又发现了一个问题，进来后第一个页面除了导航栏没有任何内容，干巴巴的，怎么办呢？可以让angular默认跳转一个页面</p>
+<p> {path:’**’,redirectTo:’home’}</p>
+<p>这个<strong>就代表是没有找到路由地址的时候加载的组件，其中要注意的是redirectTo需要的参数是string类型的，它需要</strong>路径**而不是组件名</p>
+<p>l <strong>保持被选中状态的标签</strong></p>
+<p>我们经常在网页中看到，点击了某个标签后，这个标签明显区别与其他标签，好像被按下去一样，这种符合直觉的反应对用户的访问和其感受都有好处，怎么实现呢</p>
+<p>angular提供了routerLinkActive的方法，举个例子：</p>
+<p>  &lt;a [routerLink]&#x3D;”[ ‘&#x2F;home’ ]” routerLinkActive&#x3D;”active”&gt;首页标签</a></p>
+<p>在刚才的基础上加上routerLinkActive标签即可，其中的active位置是你的css标签类，他会在css中寻找名为active类的样式为其装扮，就像这样</p>
+<p>另外注意你的css文件应该是整个项目的根组件的样式文件。</p>
+<p># app.component.scss</p>
+<p>.active{</p>
+<p>  background-color: gray;</p>
+<p>  color: chocolate; }</p>
+<p>l <strong>动态路由及其跳转传值</strong></p>
+<p>想象这样一个场景，在商品列表中选中一个商品，进入详情页。这个步骤中我们需要知道你选中的是那个产品，并跳转到相应页面，而且我们还需要能够返回列表。angular中有这两种方式来完成</p>
+<p>1、get传值</p>
+<p>首先将标签改成这样</p>
+<p>​    &lt;a [routerLink]&#x3D;”[ ‘&#x2F;newscontent’ ]” [queryParams]&#x3D;”{aid:key}”&gt;—</a></p>
+<p>这个queryParams是设置请求时的参数，参数是之前设置好的ngfor中的参数，我们看一下它请求的链接</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:4200/newscontent?aid=1">http://localhost:4200/newscontent?aid=1</a></p>
+<p>这样就知道了用户在请求哪一条数据</p>
+<p>接着要让newscontent组件获得这个queryParams，需要在newscontent组件中引入</p>
+<p>import { ActivatedRoute } from “@angular&#x2F;router”;</p>
+<p> constructor(public route:ActivatedRoute) { }</p>
+<p>这样你就能在newscontent中获得这个参数</p>
+<p>ngOnInit(): void {</p>
+<p>  this.route.queryParams.subscribe((data:any) &#x3D;&gt;{</p>
+<p>   console.log(data.aid)</p>
+<p>  }) }</p>
+<p>2、动态路由</p>
+<p>配置，后面的:aid就是动态部分（注意不要忘了前面的冒号）</p>
+<p>#app-routing.module.ts</p>
+<p>{path:’newscontent&#x2F;:aid’,component:NewscontentComponent},</p>
+<p>接下来，我们在网页标签中就可以直接使用</p>
+<p>&lt;a [routerLink]&#x3D;”[ ‘&#x2F;newscontent&#x2F;‘, key ]”&gt;—</a></p>
+<p>这句话的格式是这样的，注意这里的path已经发生了改变，如果你还想要newscontent的跳转，要再多加一条，也就是说，保证一个路由一个链接</p>
+<p>&lt;a [routerLink]&#x3D;”[ ‘&#x2F;path’, routeParam ]”&gt;name</a></p>
+<p>routeParam就是我们的动态传值参数，url效果如下</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:4200/newscontent/6">http://localhost:4200/newscontent/6</a></p>
+<p>有了这个我们就可以直接让用户去想去的地方</p>
+<p>另外，动态路由中获取传值也和get方法相似，只是方法略有不同</p>
+<p>&#x2F;&#x2F;动态路由获取传值</p>
+<p>this.route.params.subscribe((data:any) &#x3D;&gt;{</p>
+<p> console.log(data.aid)})</p>
+<p>l <strong>动态路由的JS跳转（推荐，实现方便）</strong></p>
+<p>首先按照之前的文档实现一个可以路由的标签，绑定一个方法</p>
+<p>&lt;button (click)&#x3D;”goNewsContent()”&gt;js跳转路由</button></p>
+<p>在业务逻辑中引入模块，按照服务的方式声明</p>
+<p>import { Router } from “@angular&#x2F;router”;</p>
+<p>constructor(public router:Router) { }</p>
+<p>接下来就可以写业务逻辑了</p>
+<p>goNewsContent(){</p>
+<p>  &#x2F;&#x2F;路由跳转 -适合普通路由和动态路由</p>
+<p>  this.router.navigate([‘productcontent’,’213’]) }</p>
+<p>l <strong>get传值的JS跳转</strong></p>
+<p>还是实现一个标签</p>
+<p>&lt;button (click)&#x3D;”goNewsContent()”&gt;get传值js跳转</button></p>
+<p>引入模块</p>
+<p>import { Router, NavigationExtras } from “@angular&#x2F;router”;</p>
+<p>下面可以实现方法：</p>
+<p>goNewsContent(){</p>
+<p>  &#x2F;&#x2F;跳转并进行get传值</p>
+<p>  let queryParams:NavigationExtras&#x3D;{</p>
+<p>   queryParams:{‘aid’:’123’}</p>
+<p>  }</p>
+<p>  this.router.navigate([‘&#x2F;news’], queryParams)</p>
+<p> }</p>
+<p>一定要注意，这里的navigate方法要把queryParams参数传在第二个参数的位置，而不是路由地址的数组里</p>
+<p><a target="_blank" rel="noopener" href="http://localhost:4200/news?aid=123">http://localhost:4200/news?aid=123</a></p>
+<p>l <strong>父子路由</strong></p>
+<p>顾名思义，就是在路由的界面中再添加一层路由，实现二级页面的跳转</p>
+<p>模组引入肯定在定义父路由就做过了，所以我们直接下一步</p>
+<p>在路由界面先引入子路由的页面</p>
+<p>import { WelcomeComponent } from “.&#x2F;components&#x2F;home&#x2F;welcome&#x2F;welcome.component”;</p>
+<p>​    设置路由，使用children属性（标红部分）</p>
+<p>const routes: Routes &#x3D; [{</p>
+<p>  path:’home’,component:HomeComponent,</p>
+<p>  children:[</p>
+<p>   {path:’welcome’,component:WelcomeComponent},</p>
+<p>   {path:’settings’,component:SettingsComponent},</p>
+<p>   {path:’**’,redirectTo:’welcome’} &#x2F;&#x2F;设置默认路由，后面会说到</p>
+<p>  ]}</p>
+<p>设置好后，我们就可以在父页面中使用</p>
+<p>&lt;a [routerLink]&#x3D;”[ ‘&#x2F;product&#x2F;pcate’ ]”&gt;商品分类列表</a></p>
+<p>当然，还需要在想让它出现的位置为它设置出口</p>
+<p><router-outlet></router-outlet></p>
+<p>这个时候，你的功能就实现了，不过你肯定发现了一个问题，正常的网页在访问时，（比如我当前访问的官网），我点了文档进入页面后立刻显示了第一个三级页面，看起来非常自然，而我们却不行，这里的解决方式和我们之前的一样，在子路由的数组中添加默认路由即可</p>
+<p>就像这样：</p>
+<pre class="line-numbers language-none"><code class="language-none">const routes: Routes &#x3D; [&#123;
+
+path:&#39;home&#39;,component:HomeComponent,
+
+​    children:[
+
+​      &#123;path:&#39;welcome&#39;,component:WelcomeComponent&#125;,
+
+​      &#123;path:&#39;**&#39;,redirectTo:&#39;welcome&#39;&#125;&#x2F;&#x2F;设置默认路由
+
+] &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="FormControl"><a href="#FormControl" class="headerlink" title="FormControl"></a>FormControl</h1><h3 id="first-Stap"><a href="#first-Stap" class="headerlink" title="first Stap"></a>first Stap</h3><p>add FormId on <code>&lt;from&gt;</code></p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">#loginForm</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ngForm<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="sec-Stap"><a href="#sec-Stap" class="headerlink" title="sec Stap"></a>sec Stap</h3><p>add <code>ngModel</code> on each <code>&lt;input&gt;</code></p>
+<p>also remember give it a name</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ngModel</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form-control<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="third-stap"><a href="#third-stap" class="headerlink" title="third stap"></a>third stap</h3><p>add submit control</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>login(loginForm.value)<span class="token punctuation">"</span></span> <span class="token attr-name">[disabled]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>loginForm.invalid<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-theme<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Login<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>or</p>
+<ol>
+<li>add submit type on button</li>
+</ol>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">[disabled]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>loginForm.valid<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>btn btn-info btn-lg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Log in<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>add ngSubmit on Form</li>
+</ol>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">#loginForm</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ngForm<span class="token punctuation">"</span></span> <span class="token attr-name">(ngSubmit)</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>login(loginForm)<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ng-pristine ng-valid<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="3">
+<li>if you use this way to submit, you should use <code>form: NgForm</code> on you typescript code to receive form data, for example:</li>
+</ol>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token function">login</span><span class="token punctuation">(</span>form<span class="token operator">:</span> NgForm<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>value<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>value<span class="token punctuation">.</span>password<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>loginService<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>value<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>loginService<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>value<span class="token punctuation">.</span>password<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">hengxingstu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hengxingstu.github.io/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">https://hengxingstu.github.io/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hengxingstu.github.io" target="_blank">恒星同学</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/angular/">angular</a></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/6o/wallhaven-6o6orw.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/09/17/DataStructure/Graph/"><img class="next-cover" src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">图的邻接存储方式对比</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">hengxingstu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hengxingstu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hengxingstu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:hengxingstu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客，欢迎和我联系，交流是最好的老师</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">angular学习记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1-%E6%8C%81%E4%B9%85%E5%8C%96%E8%A6%81%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">服务-持久化要点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Angular%E4%B8%AD%E7%9A%84Dom%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">Angular中的Dom操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E9%80%9A%E4%BF%A1"><span class="toc-number">1.3.</span> <span class="toc-text">父子组件及其之间的交互通信</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Angular%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">Angular中的生命周期函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rxjs%E5%BC%82%E6%AD%A5%E6%95%B0%E6%8D%AE%E6%B5%81%E7%BC%96%E7%A8%8B"><span class="toc-number">1.5.</span> <span class="toc-text">Rxjs异步数据流编程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#angular%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82"><span class="toc-number">1.6.</span> <span class="toc-text">angular中的数据请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#angular%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="toc-number">1.7.</span> <span class="toc-text">angular的路由</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FormControl"><span class="toc-number"></span> <span class="toc-text">FormControl</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#first-Stap"><span class="toc-number">1.</span> <span class="toc-text">first Stap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sec-Stap"><span class="toc-number">2.</span> <span class="toc-text">sec Stap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#third-stap"><span class="toc-number">3.</span> <span class="toc-text">third stap</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="angular学习记录"><img src="https://w.wallhaven.cc/full/6o/wallhaven-6o6orw.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="angular学习记录"/></a><div class="content"><a class="title" href="/2022/09/19/code/Angular%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="angular学习记录">angular学习记录</a><time datetime="2022-09-19T02:39:00.000Z" title="发表于 2022-09-19 10:39:00">2022-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/17/DataStructure/Graph/" title="图的邻接存储方式对比"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图的邻接存储方式对比"/></a><div class="content"><a class="title" href="/2022/09/17/DataStructure/Graph/" title="图的邻接存储方式对比">图的邻接存储方式对比</a><time datetime="2022-09-17T01:41:00.000Z" title="发表于 2022-09-17 09:41:00">2022-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/01/Math/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/" title="高等数学公式速记"><img src="https://w.wallhaven.cc/full/6o/wallhaven-6o8ekw.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高等数学公式速记"/></a><div class="content"><a class="title" href="/2022/08/01/Math/%E9%AB%98%E6%95%B0%E5%85%AC%E5%BC%8F/" title="高等数学公式速记">高等数学公式速记</a><time datetime="2022-08-01T12:34:00.000Z" title="发表于 2022-08-01 20:34:00">2022-08-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/01/English/%E8%AF%AD%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9/" title="考研英语语法知识"><img src="https://w.wallhaven.cc/full/6o/wallhaven-6ozkzl.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="考研英语语法知识"/></a><div class="content"><a class="title" href="/2022/08/01/English/%E8%AF%AD%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9/" title="考研英语语法知识">考研英语语法知识</a><time datetime="2022-08-01T03:49:00.000Z" title="发表于 2022-08-01 11:49:00">2022-08-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/28/Math/%E5%A5%87%E5%8F%98%E5%81%B6%E4%B8%8D%E5%8F%98%EF%BC%8C%E7%AC%A6%E5%8F%B7%E7%9C%8B%E8%B1%A1%E9%99%90/" title="奇变偶不变，符号看象限"><img src="https://w.wallhaven.cc/full/v9/wallhaven-v9kw9l.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="奇变偶不变，符号看象限"/></a><div class="content"><a class="title" href="/2022/07/28/Math/%E5%A5%87%E5%8F%98%E5%81%B6%E4%B8%8D%E5%8F%98%EF%BC%8C%E7%AC%A6%E5%8F%B7%E7%9C%8B%E8%B1%A1%E9%99%90/" title="奇变偶不变，符号看象限">奇变偶不变，符号看象限</a><time datetime="2022-07-28T14:34:00.000Z" title="发表于 2022-07-28 22:34:00">2022-07-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By hengxingstu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-hengxing.vercel.app/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.vemoji)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-hengxing.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      document.getElementById('twikoo-count').innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
