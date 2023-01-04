@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>SpringBoot学习笔记</title>
+      <title>SpringBoot2学习笔记</title>
       <link href="/2023/01/01/code/Springboot%E7%AC%94%E8%AE%B0/"/>
       <url>/2023/01/01/code/Springboot%E7%AC%94%E8%AE%B0/</url>
       
@@ -20,7 +20,7 @@
       
         <tags>
             
-            <tag> springboot </tag>
+            <tag> SpringBoot </tag>
             
         </tags>
       
@@ -862,33 +862,6 @@
     
     
     <entry>
-      <title>TypeScript_如何遍历Object</title>
-      <link href="/2022/05/02/ts%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1/"/>
-      <url>/2022/05/02/ts%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1/</url>
-      
-        <content type="html"><![CDATA[<h1 id="如何遍历Object"><a href="#如何遍历Object" class="headerlink" title="如何遍历Object"></a>如何遍历Object</h1><p>不要使用 for in，<a href="https://stackoverflow.com/questions/65300784/declare-key-type-of-for-in-loop-in-typescript">参考这里</a></p><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> val<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>当然，const是常量，如果你还需要在循环中对他进行改变，可以使用var变量</p><p>这个<code>Object.entries(obj))</code>是关键，它可以把obj（一个不可迭代的对象）转成一个可以迭代的对象</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 编程文档 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> TypeScript </tag>
-            
-            <tag> 编程技巧 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>正斜杠(&quot; / &quot;)和反斜杠(&quot; \ &quot;)的区别</title>
       <link href="/2022/05/02/forwardAndBackwordSlash/"/>
       <url>/2022/05/02/forwardAndBackwordSlash/</url>
@@ -908,6 +881,33 @@
             <tag> 计算机知识 </tag>
             
             <tag> 趣闻 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TypeScript_如何遍历Object</title>
+      <link href="/2022/05/02/ts%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2022/05/02/ts%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="如何遍历Object"><a href="#如何遍历Object" class="headerlink" title="如何遍历Object"></a>如何遍历Object</h1><p>不要使用 for in，<a href="https://stackoverflow.com/questions/65300784/declare-key-type-of-for-in-loop-in-typescript">参考这里</a></p><pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> val<span class="token punctuation">]</span> <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>当然，const是常量，如果你还需要在循环中对他进行改变，可以使用var变量</p><p>这个<code>Object.entries(obj))</code>是关键，它可以把obj（一个不可迭代的对象）转成一个可以迭代的对象</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程文档 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TypeScript </tag>
+            
+            <tag> 编程技巧 </tag>
             
         </tags>
       
