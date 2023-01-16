@@ -8,7 +8,7 @@
       <link href="/2023/01/15/code/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/"/>
       <url>/2023/01/15/code/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/</url>
       
-        <content type="html"><![CDATA[<h1 id="继承再续"><a href="#继承再续" class="headerlink" title="继承再续"></a>继承再续</h1><h2 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>super理解为：父类的</p><p>super可以用来调用：属性<code>super.attr</code>、方法<code>super.method()</code>、构造器<code>super()</code></p><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul><li>我们可以在子类的方法或构造器中。通过使用<code>super.attr</code>或<code>super.method()</code>的方式，显式的调用父类中声明的属性或方法。但是，通常情况下，我们习惯省略<code>super.</code></li><li>特殊情况：当子类和父类中定义了同名的属性时，我们要想在子类中调用父类中声明的属性，则必须显式的使用<code>super.attr</code>的方式，表明调用的是父类中声明的属性。</li><li>特殊情况：当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时，则必须显式的使用<code>super.method()</code>的方式，表明调用的是父类中被重写的方法。</li></ul><h4 id="父类构造器"><a href="#父类构造器" class="headerlink" title="父类构造器"></a>父类构造器</h4><ul><li>我们可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器<br><code>super(形参列表)</code>的使用，必须声明在子类构造器的首行！</li><li>我们在类的构造器中，针对于<code>this(形参列表)</code>或<code>super(形参列表)</code>只能二选一，不能同时出现⭐</li><li>在构造器的首行，没有显式的声明<code>this(形参列表)</code>或<code>super(形参列表)</code>，则<strong>默认调用的是父类中空参的构造器</strong>：<code>super()</code></li><li>在类的多个构造器中，至少有一个类的构造器中使用了<code>super(形参列表)</code>，调用父类中的构造器</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="继承再续"><a href="#继承再续" class="headerlink" title="继承再续"></a>继承再续</h1><h2 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>super理解为：父类的</p><p>super可以用来调用：属性<code>super.attr</code>、方法<code>super.method()</code>、构造器<code>super()</code></p><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul><li>我们可以在子类的方法或构造器中。通过使用<code>super.attr</code>或<code>super.method()</code>的方式，显式的调用父类中声明的属性或方法。但是，通常情况下，我们习惯省略<code>super.</code></li><li>特殊情况：当子类和父类中定义了同名的属性时，我们要想在子类中调用父类中声明的属性，则必须显式的使用<code>super.attr</code>的方式，表明调用的是父类中声明的属性。</li><li>特殊情况：当子类重写了父类中的方法以后，我们想在子类的方法中调用父类中被重写的方法时，则必须显式的使用<code>super.method()</code>的方式，表明调用的是父类中被重写的方法。</li></ul><h4 id="父类构造器"><a href="#父类构造器" class="headerlink" title="父类构造器"></a>父类构造器</h4><ul><li>我们可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器<br><code>super(形参列表)</code>的使用，必须声明在子类构造器的首行！</li><li>我们在类的构造器中，针对于<code>this(形参列表)</code>或<code>super(形参列表)</code>只能二选一，不能同时出现⭐</li><li>在构造器的首行，没有显式的声明<code>this(形参列表)</code>或<code>super(形参列表)</code>，则<strong>默认调用的是父类中空参的构造器</strong>：<code>super()</code></li><li>在类的多个构造器中，至少有一个类的构造器中使用了<code>super(形参列表)</code>，调用父类中的构造器</li></ul><h1 id="子类对象实例化的全过程"><a href="#子类对象实例化的全过程" class="headerlink" title="子类对象实例化的全过程"></a>子类对象实例化的全过程</h1><p>从结果上来看：（继承性）</p><ul><li><p>子类继承父类以后，就获取了父类中声明的属性或方法。</p></li><li><p>创建子类的对象，在堆空间中，就会加载所有父类中声明的属性。</p></li></ul><p>从过程上来看：</p><ul><li>当我们通过子类的构造器创建子类对象时，我们一定会直接或间接的调用其父类的构造器，进而调用父类的父类的构造器，…</li><li>直到调用了java.lang.Object类中空参的构造器为止。正因为加载过所有的父类的结构，所以才可以看到内存中有</li><li>父类中的结构，子类对象才可以考虑进行调用。</li></ul><p>明确：虽然创建子类对象时，调用了父类的构造器，但是自始至终就创建过一个对象，即为new的子类对象。</p><h1 id="多态性-Polymorphism"><a href="#多态性-Polymorphism" class="headerlink" title="多态性 Polymorphism"></a>多态性 Polymorphism</h1><p>多态性较难理解，请仔细思考辨析。</p><h2 id="哲学三问"><a href="#哲学三问" class="headerlink" title="哲学三问"></a>哲学三问</h2><p>这三个问题，请在第一遍时<strong>只看序号1</strong>的内容，第二遍再看序号2的内容</p><h3 id="什么是多态"><a href="#什么是多态" class="headerlink" title="什么是多态"></a>什么是多态</h3><ol><li><p>父类的引用指向子类的对象（或子类的对象赋给父类的引用）</p><p>可以理解为一个事物的多种形态</p></li><li><p>所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。</p><p>Java引用变量有两个类型： 编译时类型和运行时类型。 编译时类型由声明该变量时使用的类型决定， 运行时类型由实际赋给该变量的对象决定。 简称： <strong>编译时， 看左边；运行时， 看右边。</strong></p></li></ol><h3 id="为什么要有多态"><a href="#为什么要有多态" class="headerlink" title="为什么要有多态"></a>为什么要有多态</h3><ol><li><p>比如你是一个酒神，对酒情有独钟。某日回家发现桌上有几个杯子里面都装了白酒，从外面看我们是不可能知道这是些什么酒，只有喝了之后才能够猜出来是何种酒。你一喝，这是剑南春、再喝这是五粮液、再喝这是酒鬼酒….在这里我们可以描述成如下：</p><p>   酒 a &#x3D; 剑南春</p><p>   酒 b &#x3D; 五粮液</p><p>   酒 c &#x3D; 酒鬼酒</p><p>   …</p><p>   这里所表现的的就是多态。剑南春、五粮液、酒鬼酒都是酒的子类，我们<strong>只是通过酒这一个父类就能够引用不同的子类</strong>，这就是多态——我们<strong>只有在运行的时候才会知道引用变量所指向的具体实例对象</strong>。</p></li><li><p>因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。</p></li></ol><h3 id="怎么使用多态"><a href="#怎么使用多态" class="headerlink" title="怎么使用多态"></a>怎么使用多态</h3><ol><li>比如我现在定义了两个类<code>Person</code>和<code>Man</code>，<code>Man</code>继承自<code>Person</code>并重写了父类中的<code>eat()</code>和<code>walk()</code>方法  <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//对象的多态性：将子类对象赋给父类变量</span><span class="token class-name">Person</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Man</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//多态的使用</span>p2<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>p2<span class="token punctuation">.</span><span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ol><p>  当调用子父类同名同参数的方法时，实际执行的是子类重写父类的方法。这被称为<strong>虚拟方法调用</strong>。你想想，程序在编译时一位p2是<code>Person</code>对象，但在执行过程中才发现p2是子类对象，进而调用子类重写的方法。利用这一特性，我们可以在某些无法确定具体对象类型的场合，先使用父类对象代替，程序在执行时才决定具体是哪个子类对象类型。</p><ol start="2"><li><p>开发环境中我们经常会这样用：比如我有一个<code>Animal</code>类，并中定义<code>shout()</code>方法，再定义子类<code>Cat</code>、<code>Dog</code>两个类，分别重写<code>shout()</code>方法。</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Animal</span><span class="token punctuation">&#123;</span><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"动物：叫"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token keyword">class</span> <span class="token class-name">Dog</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">&#123;</span><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"汪！汪！汪！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token keyword">class</span> <span class="token class-name">Cat</span> <span class="token keyword">extends</span> <span class="token class-name">Animal</span><span class="token punctuation">&#123;</span><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"喵！喵！喵！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>再在测试类中定义一个方法func，接收父类作为参数，我希望在接收到Dog对象时，会根据dog重写的方法来反应</p><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token class-name">AnimalTest</span> test <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AnimalTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>test<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Dog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//汪！汪！汪！</span>test<span class="token punctuation">.</span><span class="token function">func</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//喵！喵！喵！</span><span class="token punctuation">&#125;</span><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token class-name">Animal</span> animal<span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token comment">//Animal animal = new Dog();</span>    animal<span class="token punctuation">.</span><span class="token function">shout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>经过测试，当向方法中传入dog对象，结果是<code>汪！汪！汪！</code></p></li></ol><h2 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h2><p> Java实现多态有三个必要条件：继承、重写、向上转型。</p><blockquote><p>继承：在多态中必须存在有继承关系的子类和父类。</p><p>重写：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。</p><p>向上转型：在多态中需要将子类的引用赋给父类对象，只有这样该引用才能够具备技能调用父类的方法和子类的方法。</p></blockquote><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>对象的多态性，<strong>只适用于方法</strong>，不适用于属性（编译和运行都看左边）</p><p>本文参考：</p><p><a href="https://www.cnblogs.com/chenssy/p/3372798.html">java提高篇(四)—–理解java的三大特性之多态</a></p>]]></content>
       
       
       <categories>
@@ -195,9 +195,9 @@
       
         <tags>
             
-            <tag> 考研 </tag>
-            
             <tag> DataStructure </tag>
+            
+            <tag> 考研 </tag>
             
         </tags>
       
@@ -251,11 +251,11 @@
       
         <tags>
             
+            <tag> 考研 </tag>
+            
             <tag> 考研英语 </tag>
             
             <tag> 语法 </tag>
-            
-            <tag> 考研 </tag>
             
         </tags>
       
@@ -309,9 +309,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -338,9 +338,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -367,9 +367,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -396,9 +396,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -454,9 +454,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -483,9 +483,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -512,9 +512,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -541,9 +541,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -570,9 +570,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -599,9 +599,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -628,9 +628,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -657,9 +657,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -686,9 +686,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -715,9 +715,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -744,9 +744,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -773,9 +773,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -802,9 +802,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -858,9 +858,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -887,9 +887,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -916,9 +916,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -945,9 +945,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -974,9 +974,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
@@ -1057,9 +1057,9 @@
       
         <tags>
             
-            <tag> 考研英语 </tag>
-            
             <tag> 考研 </tag>
+            
+            <tag> 考研英语 </tag>
             
             <tag> 单词 </tag>
             
