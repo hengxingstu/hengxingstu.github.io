@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Java的面向对象笔记（下）</title>
+      <link href="/2023/01/19/code/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A15/"/>
+      <url>/2023/01/19/code/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A15/</url>
+      
+        <content type="html"><![CDATA[<h1 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h1><p>static 静态</p><h2 id="什么是静态"><a href="#什么是静态" class="headerlink" title="什么是静态"></a>什么是静态</h2><p>主要意义是在于创建独立于具体对象的域变量或者方法。<strong>以致于即使没有创建对象，也能使用属性和调用方法</strong>！</p><p>static关键字还有一个比较关键的作用就是<strong>用来形成静态代码块以优化程序性能</strong>。static块可以置于类中的任何地方，类中可以有多个static块。在类初次被加载的时候，会按照static块的顺序来执行每个static块，并且只会执行一次。</p><h2 id="怎么使用static"><a href="#怎么使用static" class="headerlink" title="怎么使用static"></a>怎么使用static</h2><p>static可以用来修饰：属性、方法、代码块、内部类</p><p><em>使用static修饰属性：静态变量（或类变量）</em></p><ol><li><p>属性，按是否使用static修饰，又分为：静态属性 vs 非静态属性(实例变量)</p><ul><li><p>实例变量：我们创建了类的多个对象，每个对象都独立的拥有一套类中的非静态属性。当修改其中一个对象中的非静态属性时，不会导致其他对象中同样的属性值的修改。</p></li><li><p>静态变量：我们创建了类的多个对象，多个对象共享同一个静态变量。当通过某一个对象修改静态变量时，会导致其他对象调用此静态变量时，是修改过了的。</p></li></ul></li></ol><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ol><li><p>静态变量随着类的加载而加载。可以通过”类.静态变量”的方式进行调用</p></li><li><p>静态变量的加载要早于对象的创建。</p></li><li><p>由于类只会加载一次，则静态变量在内存中也只会存在一份：存在方法区的静态域中。</p></li><li><p>不能通过类直接调用对象中的实例变量，因为这时候对象还没有生成。</p></li></ol><table><thead><tr><th align="center"></th><th align="center">类变量</th><th align="center">实例变量</th></tr></thead><tbody><tr><td align="center">类</td><td align="center">yes</td><td align="center">no</td></tr><tr><td align="center">对象</td><td align="center">yes</td><td align="center">yes</td></tr></tbody></table><h3 id="内存解析"><a href="#内存解析" class="headerlink" title="内存解析"></a>内存解析</h3><img src="https://s2.loli.net/2023/01/19/8LrVQcDEMgkZ1Tz.png" alt="静态属性内存解析" style="zoom: 33%;" /><hr><p>本文参考：</p><p><a href="https://www.cnblogs.com/chenssy/p/3372798.html">java提高篇(四)—–理解java的三大特性之多态</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java的面向对象笔记（中）(二)</title>
       <link href="/2023/01/15/code/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/"/>
       <url>/2023/01/15/code/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A14/</url>
