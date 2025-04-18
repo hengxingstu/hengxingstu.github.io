@@ -1,0 +1,698 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>视频监控系统的组成 | 恒星同学</title><meta name="author" content="hengxingstu"><meta name="copyright" content="hengxingstu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="关于视频监控系统的介绍和硬盘阵列的小知识"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://hengxingstu.github.io/2023/07/15/dailyLife/%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '视频监控系统的组成',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-15 11:29:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://wallpapercave.com/uwp/uwp2365506.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="恒星同学"><span class="site-name">恒星同学</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">视频监控系统的组成</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-15T01:41:00.000Z" title="发表于 2023-07-15 09:41:00">2023-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-15T03:29:01.024Z" title="更新于 2023-07-15 11:29:01">2023-07-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Markdown/">Markdown</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="视频监控系统的组成"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2023/07/15/dailyLife/%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="视频监控系统的组成"><a href="#视频监控系统的组成" class="headerlink" title="视频监控系统的组成"></a>视频监控系统的组成</h1><p>五个部分</p>
+<ul>
+<li><p>音视频采集系统</p>
+<ul>
+<li>2.1 2.2 成像及编解码技术</li>
+</ul>
+</li>
+<li><p>传输系统</p>
+</li>
+<li><p>控制系统</p>
+</li>
+<li><p>存储系统</p>
+<ul>
+<li>阵列、NAS</li>
+</ul>
+</li>
+<li><p>显示系统</p>
+</li>
+</ul>
+<h1 id="视频监控基础"><a href="#视频监控基础" class="headerlink" title="视频监控基础"></a>视频监控基础</h1><h2 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h2><ol>
+<li>掌握成像基础知识</li>
+<li>了解视频监控系统中的编解码、传输、存储、管理常见的协议及技术</li>
+<li>了解视频监控系统中智能技术的应用</li>
+</ol>
+<h2 id="第一节-成像技术基础"><a href="#第一节-成像技术基础" class="headerlink" title="第一节 成像技术基础"></a>第一节 成像技术基础</h2><h3 id="镜头选择"><a href="#镜头选择" class="headerlink" title="镜头选择"></a>镜头选择</h3><p>摄像头就是一个摄像机，摄像机重要的是镜头，如何选择？</p>
+<ol>
+<li>先看摄像机和镜头匹配</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">类型\匹配</th>
+<th align="center">CS摄像机</th>
+<th align="center">C型摄像机</th>
+<th align="center">至传感器距离</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CS镜头</td>
+<td align="center">√</td>
+<td align="center">×</td>
+<td align="center">12.55mm</td>
+</tr>
+<tr>
+<td align="center">C镜头</td>
+<td align="center">√<br />需加CS-C接口适配器</td>
+<td align="center">√</td>
+<td align="center">17.5mm</td>
+</tr>
+</tbody></table>
+<p>镜头</p>
+<p><img src="https://s2.loli.net/2023/03/06/oxhRT7jPNeMD4Ws.png" alt="image-20230306202654852"></p>
+<ol start="2">
+<li>再看sensor（传感器）</li>
+</ol>
+<p>选择时的原则</p>
+<p>&#x3D;&#x3D;镜头尺寸&gt;&#x3D;sensor尺寸&#x3D;&#x3D;</p>
+<p>下图中圆型是镜头，方形是sensor</p>
+<img src="https://s2.loli.net/2023/03/06/FzYrP6domMbSEtU.png" alt="image-20230306203153335" style="zoom:50%;" />
+
+<ol start="3">
+<li>焦距</li>
+</ol>
+<img src="https://s2.loli.net/2023/03/06/YPiTjwSlvQ1ngVL.png" alt="image-20230306204019958" style="zoom:50%;" />
+
+<blockquote>
+<p>焦距越小，视野越广，是广角镜头；焦距越大，视野越小，是远摄镜头</p>
+</blockquote>
+<p>镜头选择公式：</p>
+<blockquote>
+<p>F &#x3D; W D &#x2F; M</p>
+<p>F：镜头焦距</p>
+<p>W：CCD靶面宽度</p>
+<p>D：被摄物与镜头的距离</p>
+<p>M：需要拍摄的宽度</p>
+<p>附上CCD靶面规格尺寸</p>
+<p><img src="https://s2.loli.net/2023/03/06/RCXzKwOptuUnNx9.png" alt="image-20230306205203793"></p>
+</blockquote>
+<ol start="4">
+<li><p>夜视能力</p>
+<p>日间镜头在夜间会出现失焦，需要重新调焦</p>
+<p>采用特别设计的光学镜片令纵向色差减到最低，让24小时监控工作带来&#x3D;&#x3D;不需要二次调焦&#x3D;&#x3D;的方便</p>
+<p>请采用夜间镜头</p>
+</li>
+<li><p>景深</p>
+<p>就是摄像机能够清晰成像的范围</p>
+<p>请保证&#x3D;&#x3D;监视区域在景深范围内&#x3D;&#x3D;</p>
+<p>一般来说，焦距越小景深值越大，反之景深越小。</p>
+<img src="https://s2.loli.net/2023/03/06/FM3mjGQrUOY64Po.png" alt="image-20230306205748538" style="zoom:67%;" />
+</li>
+<li><p>照度</p>
+<p>指物体被照亮的程度，光照强度。单位勒克斯（Lux，lx）</p>
+<blockquote>
+<h3 id="caution"><a href="#caution" class="headerlink" title="caution"></a>caution</h3><p>注意与流明区分，流明是亮度，指反射到人眼所能看到的亮度。</p>
+</blockquote>
+</li>
+<li><p>对比度</p>
+<p>对比度是一幅图像中明暗区域最亮和最暗的层级差异，差异越大对比度越大。</p>
+<blockquote>
+<p>提高对比度可以看到更多细节。但不是越高越好，过高可能反而会丢失细节。</p>
+<p>并没有客观的确定最佳对比度的方法，只能通过&#x3D;&#x3D;人眼来分别&#x3D;&#x3D;</p>
+</blockquote>
+</li>
+<li><p>饱和度</p>
+<p>色彩的鲜艳程度，有颜色的部分对比灰色的部分</p>
+<p>黑白照片饱和度最低，越鲜艳越高。只能通过&#x3D;&#x3D;人眼来分别&#x3D;&#x3D;</p>
+</li>
+<li><p>锐度</p>
+<p>图像边缘的对比度。高锐度图像由于图像边缘对比度高，棱角分明，看起更清晰。但过高锐度会导致失真。只能通过&#x3D;&#x3D;人眼来分别&#x3D;&#x3D;</p>
+</li>
+<li><p>白平衡</p>
+<p>白色的平衡。</p>
+<p>摄像机针对不同色温，通过内部色彩电路使拍摄出的影像抵消偏色。更接近人眼视觉习惯。差的白平衡会导致&#x3D;&#x3D;色彩偏红、偏蓝&#x3D;&#x3D;</p>
+</li>
+<li><p>快门、光圈</p>
+<p>快门-&gt;摄像机感光时间。快门越长，感光时间越长。</p>
+<p>光圈-&gt;控制镜头进入机身内部感光面的光量。光圈大小我们用F值表示。F值越大，光圈越大，进光量越多</p>
+</li>
+<li><p>背光补偿</p>
+<p>也称逆光补偿。以中间区域的亮度为基础，把画面分成几个部分，每个部分分别曝光。可以有效解决逆光环境拍摄主体，主体黑暗（看不清）的缺陷。</p>
+<p>假如人物不在中心区域，依然会存在缺陷。为了解决这个问题，出现了宽动态。</p>
+</li>
+<li><p>宽动态</p>
+<p>对明暗部分分别曝光</p>
+</li>
+<li><p>扫描、场、帧</p>
+<p><img src="https://s2.loli.net/2023/03/06/8WgAhrDFsnl2byo.png" alt="image-20230306213602492"></p>
+</li>
+</ol>
+<p>逐行扫描，一帧一场</p>
+<p>隔行扫描中，一帧两场，合并基数场和偶数场。</p>
+<ol start="15">
+<li><p>图像分辨率</p>
+<p>画面的解析度，即图像由多少像素组成</p>
+<p>分辨率越大越清晰。</p>
+<ul>
+<li><p>视频制式</p>
+<ul>
+<li>PAL</li>
+<li>NTSC</li>
+</ul>
+<blockquote>
+<h3 id="caution-1"><a href="#caution-1" class="headerlink" title="caution"></a>caution</h3><p>摄像机的制式必须与编解码器的制式相同。</p>
+<p>如果制式不同，会出现图像颠倒，图像被分割等现象。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>码率 </p>
+<p>单位时间内，数据传输的数据位数，一般用kbps。</p>
+<p>有两种码率模式</p>
+<ul>
+<li><p>CBR 恒定比率</p>
+<p>比率在单位时间内（通常1s）不发生变化，&#x3D;&#x3D;适合流式传输&#x3D;&#x3D;</p>
+<blockquote>
+<p>宇视科技的CBR误差大概在1.85-2.16mbps内波动</p>
+</blockquote>
+</li>
+<li><p>VBR 可变比率</p>
+<p>图像复杂时，提高视频的比率以提高图像质量。&#x3D;&#x3D;适合本地存储&#x3D;&#x3D;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="第二节-视频编解码技术"><a href="#第二节-视频编解码技术" class="headerlink" title="第二节 视频编解码技术"></a>第二节 视频编解码技术</h2><p>主要是两个组织发布的技术：国际电信联盟ITU、ISO国际标准化组织<img src="/../AppData/Roaming/Typora/typora-user-images/image-20230306221758308.png" alt="image-20230306221758308"></p>
+<h3 id="视频、图像编解码"><a href="#视频、图像编解码" class="headerlink" title="视频、图像编解码"></a>视频、图像编解码</h3><h4 id="H-264"><a href="#H-264" class="headerlink" title="H.264"></a>H.264</h4><p>联合视频组（JVT）开发，特点：</p>
+<ul>
+<li>低码率</li>
+<li>高质量–DVD质量</li>
+<li>容错能力强–解决丢包</li>
+<li>网络适应性强–提供网络抽象层</li>
+</ul>
+<h4 id="MPEG"><a href="#MPEG" class="headerlink" title="MPEG"></a>MPEG</h4><p>针对低带宽设计，使得低码率传输成为可能。</p>
+<h4 id="JPEG"><a href="#JPEG" class="headerlink" title="JPEG"></a>JPEG</h4><p>第一个国际图像压缩标准。有损压缩，图像不至于失真的同时，体积小。</p>
+<h3 id="音频编解码"><a href="#音频编解码" class="headerlink" title="音频编解码"></a>音频编解码</h3><img src="https://s2.loli.net/2023/03/06/8zmqDS342bnrAeG.png" alt="image-20230306224312530" style="zoom:50%;" />
+
+<p>一般在视频监控中使用G.711和AAC，质量好。</p>
+<h2 id="第三节-存储技术"><a href="#第三节-存储技术" class="headerlink" title="第三节 存储技术"></a>第三节 存储技术</h2><h3 id="IP-SAN存储架构"><a href="#IP-SAN存储架构" class="headerlink" title="IP SAN存储架构"></a>IP SAN存储架构</h3><p>IP SAN（IP Storage Area Network，存储局域网）</p>
+<ul>
+<li>将存储系统、服务器和客户端都通过网络相互连接</li>
+<li>以网络为中心</li>
+<li>基于以太网搭建存储架构</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>设备整合</li>
+<li>性能优越</li>
+<li>数据集中，易管理</li>
+<li>高扩展性和高可用性</li>
+<li>适用于存储量大的块级应用</li>
+</ul>
+<h3 id="NAS存储架构"><a href="#NAS存储架构" class="headerlink" title="NAS存储架构"></a>NAS存储架构</h3><p>NAS（Network Attached Storage，网络附属存储）</p>
+<p>优点：</p>
+<ul>
+<li>不占用应用服务器资源</li>
+<li>广泛支持操作系统及应用</li>
+<li>扩展较容易</li>
+<li>即插即用，安装简单方便</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>相比SAN架构，存取速度慢</li>
+<li>不适合存储量大的块级应用</li>
+<li>数据备份及恢复占用网络带宽</li>
+</ul>
+<p>主要区别：</p>
+<ol>
+<li>NAS与公司内部业务系统共用一套网络，占用带宽</li>
+<li>提供文件访问的支持，必须使用文件系统，相较于IP SAN块级存储在性能上较差</li>
+<li>稳定性差。NAS的稳定性依赖文件系统的稳定。</li>
+</ol>
+<h3 id="iSCSI技术"><a href="#iSCSI技术" class="headerlink" title="iSCSI技术"></a>iSCSI技术</h3><p><code>iSCSl</code>:Internet小型计算机系统接口（<code>Internet Small Computer System Interface）</code><br>iSCSl是一种基于TCP&#x2F;IP的协议，用来建立和管理P存储设备、主机和客户机等之间的互相连接，并创建存储区域网络（SAN）</p>
+<p>技术优势：</p>
+<ul>
+<li>硬件成本低</li>
+<li>操作简单，维护方便</li>
+<li>扩充性强</li>
+<li>带宽和性能不断提升</li>
+</ul>
+<h3 id="SAS接口"><a href="#SAS接口" class="headerlink" title="SAS接口"></a>SAS接口</h3><p>SAS是新一代的SCSI技术，和现在流行的SerialATA（SATA）硬盘相同，都是采用串行技术以获得更高的传输速度，并通过缩短连结线改善内部空间</p>
+<p>SAS是并行SCSI接口之后开发出的全新接口，改善存储系统的效能、可用性和扩充性，提供与串行ATA（SerialATA，缩写为SATA）硬盘的兼容性。</p>
+<p>技术优势</p>
+<ul>
+<li>降低了磁盘阵列的成本</li>
+<li>串行接口让传输性能提高</li>
+<li>更好的扩展性与兼容性</li>
+<li>安装简单</li>
+</ul>
+<h3 id="RAID"><a href="#RAID" class="headerlink" title="RAID"></a>RAID</h3><p>RAID（RedundantArray of Independent Disks，独立冗余磁盘阵列）：将多个独立的物理硬盘按照不同的方式组合起来，形成一个虚拟的硬盘</p>
+<p>组成RAID阵列的不同方式称为RAID级别，不同的RAID级别：</p>
+<ul>
+<li>不同的存储性能</li>
+<li>不同的数据可靠性</li>
+<li>不同的存储成本</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">阵列</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">RAID 0</td>
+<td>数据条带化，无校验</td>
+</tr>
+<tr>
+<td align="center">RAID 1</td>
+<td>数据镜像，无校验</td>
+</tr>
+<tr>
+<td align="center">RAID 5</td>
+<td>数据条带化，校验信息分布式存放</td>
+</tr>
+<tr>
+<td align="center">RAID 6</td>
+<td>数据条带化，校验信息分布式存放，允许损坏2块硬盘</td>
+</tr>
+<tr>
+<td align="center">RAID 10</td>
+<td>RAIDO和RAID1的结合，同时提供数据条带化和镜像</td>
+</tr>
+<tr>
+<td align="center">RAID 50</td>
+<td>先做RAID5，后做RAID0，能有效提高RAID5的性能</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>RAID 0</p>
+<img src="https://s2.loli.net/2023/03/07/drm3l4X6zKPLQJV.png" alt="image-20230307100700878" style="zoom:67%;" />
+
+<p>数据以条带形式均匀分布，&#x3D;&#x3D;数据不安全&#x3D;&#x3D;一旦磁盘损坏，全部阵列都不可读取。</p>
+<p>但&#x3D;&#x3D;读写速度快&#x3D;&#x3D;</p>
+</li>
+<li><p>RAID 1 镜像</p>
+<p>同时读写到主硬盘和镜像</p>
+<img src="https://s2.loli.net/2023/03/07/Wnj8LQUIkdYlGsB.png" alt="image-20230307101623425" style="zoom:67%;" />
+
+<p>读性能可以并发，写性能无优势。&#x3D;&#x3D;成本高&#x3D;&#x3D;，只有一半的有效空间存储</p>
+</li>
+<li><p>RAID 5 奇偶校验</p>
+<img src="https://s2.loli.net/2023/03/07/h35b2yZGnRitaA1.png" alt="image-20230307110800373" style="zoom: 50%;" />
+
+<p>读性能好，可以并发。&#x3D;&#x3D;写性能差&#x3D;&#x3D;，需要进行奇偶校验运算。</p>
+<p>&#x3D;&#x3D;N+1级数据保护&#x3D;&#x3D;，或可通过添加热备盘的方式升级为&#x3D;&#x3D;N+2&#x3D;&#x3D;，热备盘有两种：</p>
+<ol>
+<li>专用热备盘 Dedicated Spare -&gt; 只为某一个阵列服务。</li>
+<li>全局热备盘 Global Spare -&gt; 同时为多个阵列服务</li>
+</ol>
+<blockquote>
+<h5 id="N-1是允许一个磁盘出现问题，N-2是两个。提升的原理是什么？"><a href="#N-1是允许一个磁盘出现问题，N-2是两个。提升的原理是什么？" class="headerlink" title="N+1是允许一个磁盘出现问题，N+2是两个。提升的原理是什么？"></a>N+1是允许一个磁盘出现问题，N+2是两个。提升的原理是什么？</h5><ul>
+<li>当RAID 5 阵列出现某个磁盘损坏，我们必须立即对数据进行回复，如果在恢复前，又有一个磁盘损坏，数据就丢失了。</li>
+<li>当拥有全局热备的RAID 5 阵列出现某个磁盘损坏，热备盘会首先顶替坏掉的磁盘，根据奇偶校验，做一次数据恢复。恢复完成后，就是一个完整的RAID 5 阵列，此时允许再损坏一个磁盘。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>RAID 6 </p>
+<p>带有两个独立分布式校验方案</p>
+<p>在RAID 5基础上加一位校验方案</p>
+<ul>
+<li>最少需要4块硬盘（两块做校验）</li>
+<li>允许&#x3D;&#x3D;同时&#x3D;&#x3D;坏两块</li>
+<li>&#x3D;&#x3D;写性能更差&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li><p>RAID 10</p>
+<p>RAID 1 + RAID 0</p>
+<p>利用RAID 1做读写的同时，用RAID 0做镜像备份。</p>
+<img src="https://s2.loli.net/2023/03/07/tYlp1FUfCaIcXdk.png" alt="image-20230307130815041" style="zoom:67%;" />
+</li>
+<li><p>RAID 50</p>
+<p>由两组RAID 5组成（每组最少3个），两组组成RAID 0。&#x3D;&#x3D;最少需要6块硬盘&#x3D;&#x3D;</p>
+<img src="https://s2.loli.net/2023/03/07/ecUo5vFStnBJX3M.png" alt="image-20230307131111101" style="zoom: 50%;" /></li>
+</ol>
+<h4 id="JBOD"><a href="#JBOD" class="headerlink" title="JBOD"></a>JBOD</h4><p>Just a Bunch Of Disks，磁盘簇。又称Span</p>
+<p>在逻辑上把几个物理磁盘一个接一个串联到一起，从而提供一个大的逻辑磁盘。JBOD上的数据简单的从第一个磁盘开始存储，当第一个碳盘的存储空间用完后，再依次从后面的磁盘开始存储数据。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">可靠性</th>
+<th align="center">控制器</th>
+<th align="center">智能功能</th>
+<th align="center">成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JBOD</td>
+<td align="center">较低</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">低</td>
+</tr>
+<tr>
+<td>RAID</td>
+<td align="center">较高</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">高</td>
+</tr>
+</tbody></table>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><ol>
+<li><p>组成RAID 5至少要几块硬盘？</p>
+<p>3块。两块存储，一块奇偶校验。</p>
+</li>
+<li><p>12块2T磁盘组成RAID 5阵列，可用磁盘几块？</p>
+<p>11块可用。正常RAID 5 是N+1的数据保护，一个用来做奇偶校验。</p>
+</li>
+<li><p>5块2T硬盘组成RAID6阵列，可用磁盘几块？</p>
+<p>3块。两块做奇偶校验。</p>
+</li>
+</ol>
+<h3 id="流媒体存储所需存储容量计算"><a href="#流媒体存储所需存储容量计算" class="headerlink" title="流媒体存储所需存储容量计算"></a>流媒体存储所需存储容量计算</h3><p>全网视频所需存储容量为各单路视频所需存储容量之和</p>
+<ol>
+<li>单路所需容量计算公式</li>
+</ol>
+<p>​	容量（GB）&#x3D; 码率（Mbps）* 3600 * 存储计划时长（小时）* CBR系数 &#x2F; (8*1024)</p>
+<p>​	CBR系数为 1.08</p>
+<p>​	8*1024: 8是转换bit到MB，1024是换算MB到GB</p>
+<ul>
+<li><p>例子；</p>
+</li>
+<li><p>一路视频的码率为2Mbps，该视频每天存储时间为8:00-12:00，13:30-18:30，录像保留期为15天，求所需存储容量？</p>
+<p>录像保留期内录像总时长：<code>9*15=135</code>小时</p>
+<p>存储容量：<code>2*3600*135*1.08/(8*1024)=128.15</code>GB</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>存储设备有效容量计算公式</p>
+<p>存储容量(GB) &#x3D; 有效磁盘数 * 单磁盘有效容量(GB)</p>
+<ul>
+<li><p>有效磁盘数</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>有效磁盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JBOD</td>
+<td>物理磁盘数（不计热备盘）</td>
+</tr>
+<tr>
+<td>RAID 0</td>
+<td>物理磁盘数（不计热备盘）</td>
+</tr>
+<tr>
+<td>RAID 1</td>
+<td>物理磁盘数 * 0.5（不计热备盘）</td>
+</tr>
+<tr>
+<td>RAID 5</td>
+<td>物理磁盘数 - 1（不计热备盘）</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>单磁盘有效容量</p>
+<table>
+<thead>
+<tr>
+<th>磁盘类型</th>
+<th>有效容量（GB）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1TB SATA</td>
+<td>931.5</td>
+</tr>
+<tr>
+<td>2TB SATA</td>
+<td>1863</td>
+</tr>
+<tr>
+<td>3TB SATA</td>
+<td>2794.5</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="第四节-常见协议"><a href="#第四节-常见协议" class="headerlink" title="第四节 常见协议"></a>第四节 常见协议</h2><h3 id="管理控制协议-SIP"><a href="#管理控制协议-SIP" class="headerlink" title="管理控制协议 SIP"></a>管理控制协议 SIP</h3><p>SIP（Session lnitiation Protocol，会话初始协议）是应用层的会话控制协议，用于创建、修改和释放一个或多个参与者参加的会话</p>
+<p>SIP协议采用基于文本格式的客户&#x2F;服务器模式</p>
+<p>SIP的基本功能包含</p>
+<ul>
+<li>用户定位</li>
+<li>用户能力协商</li>
+<li>用户可用性确定</li>
+<li>会话建立</li>
+<li>会话管理</li>
+</ul>
+<blockquote>
+<h3 id="caution-2"><a href="#caution-2" class="headerlink" title="caution"></a>caution</h3><p>SDP是会话描述协议，用于为SIP、RTSP、HTTP等协议描述会话信息</p>
+</blockquote>
+<p>SIP消息</p>
+<ul>
+<li>分为Request消息和Response消息</li>
+<li>Request消息通过Request-Line中method区分</li>
+<li>Response消息通过Status-Line中的Status Code区分</li>
+</ul>
+<p>常用的SIP请求消息</p>
+<ul>
+<li>INVITE：表示主叫用户发起会话请求，邀请其他用户加入一个会话。<br>也可以用在呼叫建立后用于更新会话</li>
+<li>ACK：客户端向服务器端证实它已经收到了对INVITE请求的最终响应</li>
+<li>BYE：表示终止一个已经建立的呼叫</li>
+<li>CANCEL：表示在收到对请求的最终响应之前取消该请求，对于已完成的请求则无影响</li>
+<li>REGISTER：表示客户端向SIP服务器端注册列在To字段中的地址信息</li>
+<li>OPTIONS：表示查询被叫的相关信息和功能</li>
+</ul>
+<p>常用SIP响应消息：</p>
+<ul>
+<li>100试呼叫（Trying）</li>
+<li>180振铃（Ringing）</li>
+<li>200成功响应（OK）</li>
+<li>400错误请求（Bad Request）</li>
+<li>401未授权（Unauthorized）</li>
+<li>403禁止（Forbidden）</li>
+<li>404用户不存在（NotFound）</li>
+<li>408请求超时（Request Timeout）</li>
+</ul>
+<h3 id="管理控制协议-SNMP"><a href="#管理控制协议-SNMP" class="headerlink" title="管理控制协议 SNMP"></a>管理控制协议 SNMP</h3><p>SNMP（Simple Network Management Protocol，简单网络管理协议）是对网络进行管理的一个框架，它提供一组基本的操作来监视和维护网络</p>
+<p>SNMP可以实现自动化管理并可以屏蔽不同设备的物理差异，实现对不同厂商产品的自动化管理.<br>SNMP包含SNMPV1、SNMPV2c和SNMPV3三个版本</p>
+<ul>
+<li>SNMP网络元素分为NMS和Agent两种<ul>
+<li>NMS（Network Management Station，网络管理站）</li>
+<li>Agent是驻留在设备上的一个进程，负责接收、处理来自NMS的请求报文</li>
+<li><img src="/../AppData/Roaming/Typora/typora-user-images/image-20230307142501372.png" alt="image-20230307142501372"></li>
+<li>MIB（Management Information Base，管理信息库）指代理进程包含的、能够被管理进程进行查询和设置的所有信息的集合</li>
+<li>MIB是以树状结构进行存储的，像这样<img src="/../AppData/Roaming/Typora/typora-user-images/image-20230307142816319.png" alt="image-20230307142816319"></li>
+</ul>
+</li>
+</ul>
+<h3 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h3><h4 id="TS-amp-PS"><a href="#TS-amp-PS" class="headerlink" title="TS&amp;PS"></a>TS&amp;PS</h4><p>TS流（Transport Stream）：传输流，将具有共同时间基准或独立时间基准的一个或多个PES组合（复合）而成的单一数据流（用于数据传输）。</p>
+<p>PS流（Program Stream）：节目流，将具有共同时间基准的一个或多个PES组合（复合）而成）单一数据流（用于播放或编辑系</p>
+<p>TS流和PS流的区别：&#x3D;&#x3D;TS流的包结构是长度是固定的；PS流的包结构是可变长度的。&#x3D;&#x3D;这导致了TS流的抵抗传输误码的能力强于PS流（在信道环境较为恶劣，传输误码较高时，一般采用TS码流；而在信道环境较好，传输误码较低时，一般采用PS码流。）</p>
+<h4 id="RTP"><a href="#RTP" class="headerlink" title="RTP"></a>RTP</h4><p>RTP（Real-time Transport Protocol）：实时传输协议，详细说明了在互联网上传递音频和视频的标准数据包格式，是一个传输层的、基于UDP的协议</p>
+<h3 id="存储回放协议"><a href="#存储回放协议" class="headerlink" title="存储回放协议"></a>存储回放协议</h3><h4 id="iSCSI"><a href="#iSCSI" class="headerlink" title="iSCSI"></a>iSCSI</h4><p>之前介绍了，这里不再赘述</p>
+<p>这是iSCSI协议栈</p>
+<img src="https://s2.loli.net/2023/03/07/JeN2ushZ8qjQ4vg.png" alt="image-20230307144202358" style="zoom:50%;" />
+
+<h4 id="RTSP协议"><a href="#RTSP协议" class="headerlink" title="RTSP协议"></a>RTSP协议</h4><p>RISP（Real Time Streaming Protocol）实时流传输协议，是ICP&#x2F;IP协议体系中的一个应用层协议。该协议定义了一对多应用程序如何有效地通过IP网络传送多媒体数据。RTSP在体系结构上位于RTP和RTCP之上，它使用TCP或UDP完成数据传输。</p>
+<img src="https://s2.loli.net/2023/03/07/zt2VXTUW5JHeRsa.png" alt="image-20230307144604588" style="zoom:50%;" />
+
+<p>客户端和数据管理服务器之间交互的RTSP命令包括Setup、Play、Options、Teardown、Pause。</p>
+<img src="https://s2.loli.net/2023/03/07/2RFe8naODiQ4zZc.png" alt="image-20230307145250025" style="zoom:50%;" />
+
+<h3 id="互联协议"><a href="#互联协议" class="headerlink" title="互联协议"></a>互联协议</h3><h4 id="ONVIF"><a href="#ONVIF" class="headerlink" title="ONVIF"></a>ONVIF</h4><p>ONVIF（Open Network Video lnterface Forum），开放型网络视频接口论坛，述了网络视频的模型、接口、数据类型以及数据交互的模式，目标是实现一个网络视频框架协议，使不同厂商所生产的网络视频产品（包括摄录前端、录像设备等）完全互通。</p>
+<h4 id="国标"><a href="#国标" class="headerlink" title="国标"></a>国标</h4><p>GB&#x2F;T28181《安全防范视频监控联网系统信息传输、交换、控制技术要求》规定了安全防范视频监控联网系统中信息传输、交换、控制的互联结构，通信协议结构，传输、交换、控制的基本要求和安全性要求，以及控制、传输流程和协议接口等技术要求。<br>GB&#x2F;T 28181标准对于<strong>视频监控平台互联</strong>、视频监控平台与设备互联提供了统一的信令接口、视音频编解码接口，所有系统之间通过统一公开的标准信令互访，简化了不同厂商之间的互联对接工作。</p>
+<h2 id="第五节-技术应用"><a href="#第五节-技术应用" class="headerlink" title="第五节 技术应用"></a>第五节 技术应用</h2><ul>
+<li>前端智能 -&gt; 智能摄像头，自主完成操作，后端只接收数据</li>
+<li>后端智能 -&gt; 摄像头只负责视频采集，后端自行处理</li>
+</ul>
+<p>常用方式仍然是前后端互补。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://hengxingstu.github.io">hengxingstu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://hengxingstu.github.io/2023/07/15/dailyLife/%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/">https://hengxingstu.github.io/2023/07/15/dailyLife/%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://hengxingstu.github.io" target="_blank">恒星同学</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7/">视频监控</a><a class="post-meta__tags" href="/tags/%E7%A1%AC%E7%9B%98%E9%98%B5%E5%88%97/">硬盘阵列</a></div><div class="post_share"><div class="social-share" data-image="https://wallpapercave.com/uwp/uwp2365506.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/29/code/Java/spring/SpringSecurity%E7%AC%94%E8%AE%B0/" title=""><img class="cover" src="https://wallpapercave.com/uwp/uwp2363002.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2023/03/14/code/Java/Redis%E7%AC%94%E8%AE%B0/" title="Redis学习笔记"><img class="cover" src="https://s2.loli.net/2023/02/16/N8E1LGTUnYVdmPk.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis学习笔记</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">hengxingstu</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hengxingstu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hengxingstu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:hengxingstu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客，欢迎和我联系，交流是最好的老师</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">视频监控系统的组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">视频监控基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9B%AE%E7%9A%84"><span class="toc-number">2.1.</span> <span class="toc-text">学习目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82-%E6%88%90%E5%83%8F%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80"><span class="toc-number">2.2.</span> <span class="toc-text">第一节 成像技术基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%A4%B4%E9%80%89%E6%8B%A9"><span class="toc-number">2.2.1.</span> <span class="toc-text">镜头选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#caution"><span class="toc-number">2.2.2.</span> <span class="toc-text">caution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#caution-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">caution</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82-%E8%A7%86%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81%E6%8A%80%E6%9C%AF"><span class="toc-number">2.3.</span> <span class="toc-text">第二节 视频编解码技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E3%80%81%E5%9B%BE%E5%83%8F%E7%BC%96%E8%A7%A3%E7%A0%81"><span class="toc-number">2.3.1.</span> <span class="toc-text">视频、图像编解码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#H-264"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">H.264</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MPEG"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">MPEG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JPEG"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">JPEG</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E7%BC%96%E8%A7%A3%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">音频编解码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82-%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF"><span class="toc-number">2.4.</span> <span class="toc-text">第三节 存储技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-SAN%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">IP SAN存储架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NAS%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84"><span class="toc-number">2.4.2.</span> <span class="toc-text">NAS存储架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iSCSI%E6%8A%80%E6%9C%AF"><span class="toc-number">2.4.3.</span> <span class="toc-text">iSCSI技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SAS%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.4.4.</span> <span class="toc-text">SAS接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RAID"><span class="toc-number">2.4.5.</span> <span class="toc-text">RAID</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#N-1%E6%98%AF%E5%85%81%E8%AE%B8%E4%B8%80%E4%B8%AA%E7%A3%81%E7%9B%98%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%EF%BC%8CN-2%E6%98%AF%E4%B8%A4%E4%B8%AA%E3%80%82%E6%8F%90%E5%8D%87%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.4.5.0.1.</span> <span class="toc-text">N+1是允许一个磁盘出现问题，N+2是两个。提升的原理是什么？</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JBOD"><span class="toc-number">2.4.5.1.</span> <span class="toc-text">JBOD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">2.4.5.2.</span> <span class="toc-text">练习</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%AA%92%E4%BD%93%E5%AD%98%E5%82%A8%E6%89%80%E9%9C%80%E5%AD%98%E5%82%A8%E5%AE%B9%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">2.4.6.</span> <span class="toc-text">流媒体存储所需存储容量计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82-%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.</span> <span class="toc-text">第四节 常见协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE-SIP"><span class="toc-number">2.5.1.</span> <span class="toc-text">管理控制协议 SIP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#caution-2"><span class="toc-number">2.5.2.</span> <span class="toc-text">caution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE-SNMP"><span class="toc-number">2.5.3.</span> <span class="toc-text">管理控制协议 SNMP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.4.</span> <span class="toc-text">传输协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TS-amp-PS"><span class="toc-number">2.5.4.1.</span> <span class="toc-text">TS&amp;PS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RTP"><span class="toc-number">2.5.4.2.</span> <span class="toc-text">RTP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%9B%9E%E6%94%BE%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.5.</span> <span class="toc-text">存储回放协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iSCSI"><span class="toc-number">2.5.5.1.</span> <span class="toc-text">iSCSI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RTSP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.5.2.</span> <span class="toc-text">RTSP协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.6.</span> <span class="toc-text">互联协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ONVIF"><span class="toc-number">2.5.6.1.</span> <span class="toc-text">ONVIF</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BD%E6%A0%87"><span class="toc-number">2.5.6.2.</span> <span class="toc-text">国标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82-%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8"><span class="toc-number">2.6.</span> <span class="toc-text">第五节 技术应用</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/02/01/religion/%E4%BD%9B%E6%95%99/" title="佛教教义"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="佛教教义"/></a><div class="content"><a class="title" href="/2025/02/01/religion/%E4%BD%9B%E6%95%99/" title="佛教教义">佛教教义</a><time datetime="2025-02-01T01:41:00.000Z" title="发表于 2025-02-01 09:41:00">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/01/selfDev/%E6%80%8E%E4%B9%88%E5%81%9A%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="怎么做读书笔记"><img src="https://w.wallhaven.cc/full/kx/wallhaven-kx2qdd.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="怎么做读书笔记"/></a><div class="content"><a class="title" href="/2025/02/01/selfDev/%E6%80%8E%E4%B9%88%E5%81%9A%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="怎么做读书笔记">怎么做读书笔记</a><time datetime="2025-02-01T01:41:00.000Z" title="发表于 2025-02-01 09:41:00">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/01/selfDev/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" title="如何构建自己的知识体系"><img src="https://w.wallhaven.cc/full/kx/wallhaven-kx2qdd.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何构建自己的知识体系"/></a><div class="content"><a class="title" href="/2025/02/01/selfDev/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" title="如何构建自己的知识体系">如何构建自己的知识体系</a><time datetime="2025-02-01T01:41:00.000Z" title="发表于 2025-02-01 09:41:00">2025-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/26/code/Java/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="无题"><img src="https://wallpapercave.com/uwp/uwp2361079.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/12/26/code/Java/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><time datetime="2023-12-26T02:59:05.126Z" title="发表于 2023-12-26 10:59:05">2023-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/22/code/%E5%B8%B8%E8%A7%81%E6%A3%98%E6%89%8B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" title="乱码问题总结"><img src="https://wallpapercave.com/uwp/uwp2365506.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="乱码问题总结"/></a><div class="content"><a class="title" href="/2023/10/22/code/%E5%B8%B8%E8%A7%81%E6%A3%98%E6%89%8B%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" title="乱码问题总结">乱码问题总结</a><time datetime="2023-10-22T01:41:00.000Z" title="发表于 2023-10-22 09:41:00">2023-10-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By hengxingstu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-hengxing.vercel.app/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-hengxing.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.textContent = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/haru02.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":10,"vOffset":0},"mobile":{"show":false,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body></html>
